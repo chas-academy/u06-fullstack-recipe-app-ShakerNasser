@@ -1,22 +1,29 @@
 <nav class="navbar">
-    <div class="container mx-auto flex flex-wrap items-center justify-between">
-      <a routerLink="/home" class="text-2xl font-semibold text-white flex items-center">
-        <img src="assets/logo11.png" alt="logo" width="80" height="80" class="mr-2">
-      </a>
-      <ul class="flex flex-wrap lg:flex-nowrap space-x-4 lg:space-x-4 items-center">
-        <li><a routerLink="/mains" class="text-white hover:text-gray-300">Mains</a></li>
-        <li><a routerLink="/desserts" class="text-white hover:text-gray-300">Desserts</a></li>
-        <li><a routerLink="/starters" class="text-white hover:text-gray-300">Starters</a></li>
-        <!-- Flytta "Login" och "Sign-up" knapparna till en separat meny -->
-        <li>
-          <a routerLink="/login" class="rounded-full border border-white px-2 py-1 text-white transition duration-300 ease-in-out hover:bg-yellow-50 hover:text-gray-500 focus:outline-none">Login</a>
-        </li>
-        <li>
-          <a routerLink="/register" class="rounded-full border border-white px-2 py-1 text-white transition duration-300 ease-in-out hover:bg-yellow-50 hover:text-gray-500 focus:outline-none">Register</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <div class="container mx-auto flex flex-wrap items-center justify-between">
+    
+    <a routerLink="/home" class="flex items-center justify-center lg:justify-start w-full lg:w-auto">
+      <img src="assets/logo11.png" alt="logo" width="80" height="80" class="mr-2">
+    </a>
+    <ul class="flex flex-wrap lg:flex-nowrap space-x-4 lg:space-x-4 items-center justify-center lg:justify-start w-full lg:w-auto">
+      <li><a routerLink="/mains" routerLinkActive="activebutton"
+        ariaCurrentWhenActive="page" class="text-white hover:text-gray-300">Mains</a></li>
+      <li><a routerLink="/desserts" routerLinkActive="activebutton"
+        ariaCurrentWhenActive="page" class="text-white hover:text-gray-300">Desserts</a></li>
+      <li><a routerLink="/starters" routerLinkActive="activebutton"
+        ariaCurrentWhenActive="page" class="text-white hover:text-gray-300">Starters</a></li>
+      <li>
+        <a routerLink="/login" routerLinkActive="activebutton"
+        ariaCurrentWhenActive="page" class="rounded-full border border-white px-2 py-1 text-white transition duration-300 ease-in-out hover:bg-yellow-50 hover:text-gray-500 focus:outline-none">Login</a>
+      </li>
+      <li>
+        <a routerLink="/register" routerLinkActive="activebutton"
+        ariaCurrentWhenActive="page" class="rounded-full border border-white px-2 py-1 text-white transition duration-300 ease-in-out hover:bg-yellow-50 hover:text-gray-500 focus:outline-none">Register</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
 
   <!-- bg-rose-950 */ -->
 
