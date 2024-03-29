@@ -10,15 +10,29 @@ import { RecipeService } from '../../services/recipe.service';
 })
 export class HomeComponent {
 
-  recipes?: any[];
+  recipes?: any;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService) {}
 
   searchRecipe() {
-    this.recipeService.getRecipes("chicken").subscribe(res => {
+    this.recipeService.getRecipes('').subscribe((res) => {
       console.log(res);
-      this.recipes = res;
+      
+      let recipeArray: any[];
+      recipeArray = res.hits;
+    
+      let recipes = recipeArray.map(item => {
+          return {
+            self: item._links.self.href,
+            label: item.recipe.label,
+            image: item.recipe.image,
+            totalTime: item.recipe.totalTime,
+            ingredientLines: item.recipe.ingredientLines
+          }
+      });
+    
+      this.recipes = recipes;
     });
-  }
 
+  }
 }
