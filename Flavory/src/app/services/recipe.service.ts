@@ -22,8 +22,8 @@ export class RecipeService {
 
   getRecipes(searchterm: string): Observable<any> {
 
-    let mealType = "Dinner";
-    let url = this.baseUrl + "&q=" + searchterm + "&app_id=" + this.app_id + "&app_key=" + this.app_key + "&mealType=" + mealType;
+    let dishType = "Dinner";
+    let url = this.baseUrl + "&q=" + searchterm + "&app_id=" + this.app_id + "&app_key=" + this.app_key + "&mealType=" + dishType;
     return this.http.get<any>(url, this.httpOptions)
   }
   
