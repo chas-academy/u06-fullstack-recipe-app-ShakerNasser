@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
+import { FilterComponent } from '../filter/filter.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [FilterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

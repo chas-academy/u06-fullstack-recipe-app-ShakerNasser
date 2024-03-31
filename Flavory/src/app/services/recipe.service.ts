@@ -27,5 +27,13 @@ export class RecipeService {
     return this.http.get<any>(url, this.httpOptions)
   }
   
+  getRandomRecipes(searchterm: string): Observable<any> {
+
+    let random = true ;
+    let url = this.baseUrl + "&q=" + searchterm + "&app_id=" + this.app_id + "&app_key=" + this.app_key + "&random=" + random;
+    return this.http.get<any>(url, this.httpOptions)
+  }
+
+
 }
 
