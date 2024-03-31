@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
+import { FilterComponent } from '../filter/filter.component';
 
 @Component({
   selector: 'app-mains',
   standalone: true,
-  imports: [],
+  imports: [FilterComponent],
   templateUrl: './mains.component.html',
   styleUrl: './mains.component.css'
 })
