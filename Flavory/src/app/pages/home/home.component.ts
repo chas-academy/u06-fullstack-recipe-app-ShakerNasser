@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
 import { SearchComponent } from '../search/search.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,32 +12,27 @@ import { SearchComponent } from '../search/search.component';
 })
 export class HomeComponent implements OnInit {
 
-  recipes?: any;
+  dishType= "Salad";
+    recipes?: any;
+  
+    constructor(private recipeService: RecipeService, private router: Router) {}
+  
+    ngOnInit(): void {
+    }
+  
+    recieveRecipes(recipes: any[]) {
+      this.recipes = recipes
+    }
 
-  constructor(private recipeService: RecipeService) {}
-
-  ngOnInit(): void {
-    this.searchRecipe();
-  }
-
-  searchRecipe() {
-    this.recipeService.getRecipes('dessert', 'dessert').subscribe((res) => {
+    goToDetails(recipe:any){
+      let startIndex = recipe.self.indexOf("/v2/") + 4; // Add 4 to include "/v2/"
+      let endIndex = recipe.self.indexOf("?");
       
-      let recipeArray: any[];
-      recipeArray = res.hits;
-    
-      let recipes = recipeArray.map(item => {
-          return {
-            self: item._links.self.href,
-            label: item.recipe.label,
-            image: item.recipe.image,
-            totalTime: item.recipe.totalTime,
-            ingredientLines: item.recipe.ingredientLines
-          }
-      });
-    
-      this.recipes = recipes;
-    });
+      let extractedId = recipe.self.substring(startIndex, endIndex);
+      
+      console.log(extractedId);
+      this.router.navigate(['/recipe', extractedId]);
+    }
+  
 
   }
-}
