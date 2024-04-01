@@ -9,6 +9,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RecipeComponent } from './pages/recipe/recipe.component';
+import { authGuard } from './guards/auth.guard';
+import { AdminComponent } from './pages/admin/admin.component';
 0
 
 export const routes: Routes = [
@@ -18,6 +20,7 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'mains', component: MainsComponent },
     { path: 'desserts', component: DessertsComponent },
+    { path: 'admin', component: AdminComponent, canActivate:[authGuard] },
     { path: 'starters', component: StartersComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'about', component: AboutComponent },

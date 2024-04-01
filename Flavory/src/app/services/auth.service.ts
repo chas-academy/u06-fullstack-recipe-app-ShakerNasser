@@ -2,11 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Login } from '../models/Login.model';
 import { Register } from '../models/Register.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  private loggedIn = new BehaviorSubject<boolean>(false);
+  loggedIn$ = this.loggedIn.asObservable();
+  
+  getLoginStatus(){
+    return this.loggedIn.value;
+  }
+  updateLoginState(loginState: boolean) {
+    this.loggedIn.next(loginState);
+  }
+
   constructor(private http: HttpClient) {}
   postLogin(loginObj: Login) {
     if (!loginObj) return;
@@ -22,10 +33,13 @@ export class AuthService {
     );
   }
 
+
+
+
 logOut(){
 
 
-  
+
 }
 
 

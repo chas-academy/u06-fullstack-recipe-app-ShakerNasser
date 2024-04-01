@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [FormsModule, HttpClientModule, RouterLink],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
   loginObj: Login;
@@ -26,15 +26,13 @@ export class LoginComponent {
           localStorage.setItem('token', res.token);
 
           console.log(localStorage.getItem('token'));
-
+          this.authService.updateLoginState(true);
           alert('Login Success');
-          this.router.navigateByUrl('/home')
-
+          this.router.navigateByUrl('/home');
         } else {
           alert(res.message);
         }
-      }
-    })
-
+      },
+    });
   }
 }
