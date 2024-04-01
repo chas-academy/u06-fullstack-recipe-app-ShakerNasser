@@ -8,12 +8,6 @@
    
     <img src="{{recipe.image}}" class="w-full h-auto rounded-md">
     <h3 class="text-lg font-semibold mt-2">{{ recipe.label }}</h3>
-    <p class="mt-2 text-gray-600">{{recipe.self}}</p>
-    <ul class="mt-2 max-w-md space-y-1 list-disc list-inside text-rose-900">
-        @for (ingredientLine of recipe.ingredientLines; track ingredientLine) {
-        <li> {{ingredientLine}}</li>
-        }
-    </ul>
 </article>
 } @empty {
 <p>There are no recipes...</p>

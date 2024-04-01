@@ -36,7 +36,8 @@ export class RecipeService {
       '&app_key=' +
       this.app_key +
       '&dishType=' +
-      dishType;
+      dishType + 
+      '&random=true';
 
     if (gluten) {
       url += '&health=gluten-free';
