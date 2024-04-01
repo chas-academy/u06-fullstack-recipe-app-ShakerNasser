@@ -4,12 +4,12 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './pages/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
-import { FilterComponent } from './pages/filter/filter.component';
+import { SearchComponent } from './pages/search/search.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, CommonModule, FooterComponent, RouterLink, HomeComponent, FilterComponent],
+  imports: [RouterOutlet, NavbarComponent, CommonModule, FooterComponent, RouterLink, HomeComponent, SearchComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

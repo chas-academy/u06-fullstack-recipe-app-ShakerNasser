@@ -1,2 +1,13 @@
-<p>recipe works!</p>
+<div class="mt-4">
+    <img [src]="recipe?.image" alt="">
+    <h1>{{recipe?.label}}</h1>
+
+        <ol>
+            @for (ingredient of recipe?.ingredientLines; track ingredient){
+            <li>{{ingredient}}</li>
+            }
+        </ol>
+    
+</div>
+
 
