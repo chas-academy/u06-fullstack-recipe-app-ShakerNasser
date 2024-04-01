@@ -1,44 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
-import { FilterComponent } from '../filter/filter.component';
+import { SearchComponent } from '../search/search.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mains',
   standalone: true,
-  imports: [FilterComponent],
+  imports: [SearchComponent,],
   templateUrl: './mains.component.html',
   styleUrl: './mains.component.css'
 })
 export class MainsComponent {
-
+dishType= "Main course";
 
   recipes?: any;
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(private recipeService: RecipeService, private router: Router) {}
 
-  ngOnInit(): void {
-    this.searchRecipe();
+
+  recieveRecipes(recipes: any[]) {
+    this.recipes = recipes
   }
 
-  searchRecipe() {
-    this.recipeService.getRecipes('').subscribe((res) => {
-      
-      let recipeArray: any[];
-      recipeArray = res.hits;
+  goToDetails(recipe:any){
+    let startIndex = recipe.self.indexOf("/v2/") + 4; // Add 4 to include "/v2/"
+    let endIndex = recipe.self.indexOf("?");
     
-      let recipes = recipeArray.map(item => {
-          return {
-            self: item._links.self.href,
-            label: item.recipe.label,
-            image: item.recipe.image,
-            totalTime: item.recipe.totalTime,
-            ingredientLines: item.recipe.ingredientLines
-          }
-      });
+    let extractedId = recipe.self.substring(startIndex, endIndex);
     
-      this.recipes = recipes;
-    });
-
+    console.log(extractedId);
+    this.router.navigate(['/recipe', extractedId]);
   }
 
 }

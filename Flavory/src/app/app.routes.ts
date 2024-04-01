@@ -8,6 +8,7 @@ import { SiteNotFoundComponent } from './pages/site-not-found/site-not-found.com
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
+import { RecipeComponent } from './pages/recipe/recipe.component';
 0
 
 export const routes: Routes = [
@@ -20,5 +21,7 @@ export const routes: Routes = [
     { path: 'starters', component: StartersComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'about', component: AboutComponent },
+    { path: 'recipe/:id', component: RecipeComponent },
+
     { path: '**', component: SiteNotFoundComponent }, // Wildcard route for handling all other routes
   ];

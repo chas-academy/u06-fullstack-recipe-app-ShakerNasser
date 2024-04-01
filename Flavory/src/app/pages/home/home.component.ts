@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
-import { FilterComponent } from '../filter/filter.component';
+import { SearchComponent } from '../search/search.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FilterComponent],
+  imports: [SearchComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   searchRecipe() {
-    this.recipeService.getRecipes('').subscribe((res) => {
+    this.recipeService.getRecipes('dessert', 'dessert').subscribe((res) => {
       
       let recipeArray: any[];
       recipeArray = res.hits;
