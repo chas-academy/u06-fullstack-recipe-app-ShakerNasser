@@ -32,4 +32,5 @@ dishType= "Main course";
     this.router.navigate(['/recipe', extractedId]);
   }
 
+  meassage = "There are no recipes..."
 }
