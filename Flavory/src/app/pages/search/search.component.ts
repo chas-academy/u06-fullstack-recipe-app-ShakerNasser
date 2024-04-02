@@ -17,6 +17,8 @@ querySearch = '';
 gluten = false;  // Switchbuttons som ger false värde by default
 vegetarian = false;
 nuts = false;
+egg = false;
+
 recipes: any
 
 constructor(private recipeService: RecipeService) {}
@@ -26,8 +28,9 @@ onSearch (){
   const glutenQuery = this.gluten ? 'gluten-free' : ""
   const vegetarianQuery = this.vegetarian ? 'vegetarian' : ""
   const nutsQuery = this.nuts ? "peanut-free" : ""
+  const eggQuery = this.egg ? "egg-free" : ""
 
-  this.recipeService.getRecipes(this.querySearch, this.dishType, glutenQuery, vegetarianQuery, nutsQuery).subscribe((res) => {
+  this.recipeService.getRecipes(this.querySearch, this.dishType, glutenQuery, vegetarianQuery, nutsQuery, eggQuery).subscribe((res) => {
       
     let recipeArray: any[];
     recipeArray = res.hits;

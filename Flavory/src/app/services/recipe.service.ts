@@ -24,6 +24,7 @@ export class RecipeService {
     dishType: string,
     gluten: string = '',
     vegetarian: string = '',
+    eggFree: string = '',
     nuts: string = ''
   ): Observable<any> {
     let url =
@@ -49,6 +50,9 @@ export class RecipeService {
 
     if (nuts) {
       url += '&health=peanut-free';
+    }
+    if (eggFree) {
+      url += '&health=egg-free';
     }
     console.log(url);
     return this.http.get<any>(url, this.httpOptions);
