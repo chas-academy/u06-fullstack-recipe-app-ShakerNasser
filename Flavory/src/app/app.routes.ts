@@ -20,7 +20,7 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'mains', component: MainsComponent },
     { path: 'desserts', component: DessertsComponent },
-    { path: 'admin', component: AdminComponent, canActivate:[authGuard] },
+    { path: 'admin', component: AdminComponent, canActivate:[authGuard] }, // future dev suggest
     { path: 'starters', component: StartersComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'about', component: AboutComponent },

@@ -18,7 +18,7 @@
     <br>
     <h3 class="font-semibold  text-2xl text-gray-900 dark:text-white mb-4">Dietary</h3>
     <br>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <label class="inline-flex items-center cursor-pointer">
             <input [(ngModel)]="gluten" (change)="onSearch()" id="gluten" type="checkbox" value="" class="sr-only peer">
             <div
@@ -51,6 +51,16 @@
                 </div>
             </div>
             <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Nutsfri</span>
+        </label>
+        <label class="inline-flex items-center cursor-pointer">
+            <input [(ngModel)]="egg" (change)="onSearch()" id="eggfree" type="checkbox" value="" class="sr-only peer">
+            <div
+                class="relative flex items-center justify-center w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full peer peer-focus:ring-4 peer-focus:ring-gray-300 dark:peer-focus:ring-gray-800 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-gray-600">
+                <div
+                    class="w-4 h-4 rounded-full bg-white border-2 border-gray-600 transform transition-transform peer-checked:translate-x-5">
+                </div>
+            </div>
+            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Egg-free</span>
         </label>
     </div>
 
