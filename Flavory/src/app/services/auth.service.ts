@@ -1,46 +1,44 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Login } from '../models/Login.model';
 import { Register } from '../models/Register.model';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
-  private loggedIn = new BehaviorSubject<boolean>(false);
-  loggedIn$ = this.loggedIn.asObservable();
-  
-  getLoginStatus(){
-    return this.loggedIn.value;
+  private tokenState: BehaviorSubject<boolean>
+  constructor(private http: HttpClient) {
+    const initialTokenState = !!localStorage.getItem('token')
+    this.tokenState = new BehaviorSubject<boolean>(initialTokenState);
   }
-  updateLoginState(loginState: boolean) {
-    this.loggedIn.next(loginState);
+  getTokenState(): Observable<boolean> {
+    return this.tokenState.asObservable();
   }
-
-  constructor(private http: HttpClient) {}
+  updateTokenState(): void {
+    const hasToken = !!localStorage.getItem('token');
+    this.tokenState.next(hasToken);
+  }
   postLogin(loginObj: Login) {
-    if (!loginObj) return;
+    if (!loginObj) return
     console.log(loginObj);
-    return this.http.post<any>('http://127.0.0.1:8000/api/login', loginObj);
+    return this.http.post<any>('http://127.0.0.1:8000/api/login', loginObj)
   }
   postRegister(registerObj: Register) {
-    if (!registerObj) return;
+    if (!registerObj) return
     console.log(registerObj);
-    return this.http.post<any>(
-      'http://127.0.0.1:8000/api/register',
-      registerObj
-    );
+    return this.http.post<any>('http://127.0.0.1:8000/api/register', registerObj)
   }
-
-
-
-
-logOut(){
-
-
-
-}
-
-
+  postLogout(token: any) {
+    const headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    }
+    console.log(headers);
+    return this.http.post<any>('http://127.0.0.1:8000/api/logout', {}, {
+      headers
+    })
+  }
 }
