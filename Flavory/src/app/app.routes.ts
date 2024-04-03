@@ -11,7 +11,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { RecipeComponent } from './pages/recipe/recipe.component';
 import { authGuard } from './guards/auth.guard';
 import { AdminComponent } from './pages/admin/admin.component';
-0
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },

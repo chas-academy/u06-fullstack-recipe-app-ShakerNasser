@@ -28,7 +28,7 @@ export class RegisterComponent {
           console.log(localStorage.getItem('token'));
 
           alert('Register Success');
-          this.router.navigateByUrl('/home')
+          this.router.navigateByUrl('/')
 
         } else {
           alert(res.message);
