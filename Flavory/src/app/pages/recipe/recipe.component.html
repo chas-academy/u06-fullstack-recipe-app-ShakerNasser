@@ -1,11 +1,14 @@
-<div class="flex justify-center items-center h-screen">
-    <img class="rounded-t-lg" [src]="recipe?.image" alt="{{recipe?.label}}" class="h-auto rounded-md transition duration-300 ease-in-out hover:scale-110">
-    <div class="p-5">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{recipe?.label}}</h5>
-        <ol class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            <li>Prep time: {{recipe.totalTime}} Min</li>
-            @for (ingredient of recipe?.ingredientLines; track ingredient){
+<div class="flex flex-col justify-center items-center min-h-screen">
+    <img class="rounded-t-lg w-full md:w-auto" [src]="recipe?.image" alt="{{recipe?.label}}" class="h-auto rounded-md transition duration-300 ease-in-out hover:scale-110 ">
 
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{recipe?.label}}</h5>
+ 
+    <div class="">
+        <ol class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <li> <span class="font-bold">Prep time:</span> {{recipe.totalTime}} Min</li>
+            <li> <span class="font-bold"> mealType: </span> {{recipe.mealType}} </li>
+            <li class="font-bold">Ingredients:</li>
+            @for (ingredient of recipe?.ingredientLines; track ingredient){
             <li>{{ingredient}}</li>
             }
         </ol>
